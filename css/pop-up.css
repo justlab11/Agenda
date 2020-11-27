@@ -1,0 +1,70 @@
+body {
+  background-color: #292c34;
+  padding: 0px;
+  margin: 10px;
+}
+
+label {
+  font-size: 30px;
+  color: #dfe4f2;
+}
+
+input, button {
+  outline: none;
+  background-color: #0c0d0f;
+  border: none;
+  color: #C2C8DA;
+  font-size: 30px;
+}
+
+input[type=submit], button {
+  border: 3px solid #C2C8DA;
+  text-align: center;
+  width: 150px;
+  transition: border .3s ,border-radius .3s;
+  margin-left: 75px;
+}
+
+input[type=submit]:hover, button:hover {
+  border: 3px solid #ff3d5d;
+  border-radius: 20px;
+}
+
+input[type=text], input[type=datetime-local] {
+  border-bottom: 3px solid #C2C8DA;
+  transition: border-bottom .3s;
+}
+
+input[type=text]:focus, input[type=datetime-local]:focus {
+  border-bottom: 3px solid #ff3d5d;
+}
+
+#class {
+  width: 100px;
+  text-align: center;
+}
+
+#date {
+  width: 425px
+}
+
+#assignment {
+  width: 350px;
+}
+
+#key {
+  width: 550px;
+}
+
+.settings {
+  width: 170px;
+  text-align: center;
+  margin-right: 50px;
+}
+
+button, input {
+  -webkit-app-region: no-drag;
+}
+
+/* ::-webkit-calendar-picker-indicator { background: white; } */
+::-webkit-calendar-picker-indicator { filter: invert(1) }

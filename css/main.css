@@ -1,0 +1,154 @@
+body {
+  background-color: #292c34;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* html, body {
+  background-color: rgba(41, 44, 52, .8);
+  height: 100%;
+} */
+
+h2, h4 {
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 5px;
+  text-align: center
+}
+
+header {
+  position: sticky;
+  background-color: #292c34;
+  height: 30px;
+  top: 0;
+}
+
+#exit {
+  background-color: #292c34;
+  position: absolute;
+  color: #dfe4f2;
+  height: 30px;
+  width: 40px;
+  font-weight: bold;
+  top: 0px;
+  right: 0px;
+  font-size: 20px;
+  transition: background-color .1s;
+}
+
+
+#exit:hover {
+  background-color: #db0d0d;
+}
+
+#exit:active {
+  background-color: #ff3d3d;
+}
+
+
+#title {
+  text-align: center;
+  font: Arial;
+  color: #dfe4f2;
+}
+
+#append {
+  background-color: #292c34;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  transform: translate(-10px, -10px);
+  color: #dfe4f2;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: background-color .25s;
+  font-size: 30px;
+  border: 4px solid #dfe4f2;
+  border-radius: 10px;
+}
+#append:hover {
+  background-color: #343842;
+}
+
+#append:active {
+  background-color: #4e5463;
+}
+
+#settings {
+  background-color: #292c34;
+  color: #dfe4f2;
+  cursor: pointer;
+  border-bottom: 2px solid #dfe4f2;
+  transition: background-color .25s, border-bottom .25s;
+  margin-bottom: 10px;
+  font-size: 10pt;
+}
+
+#settings:hover {
+  border-bottom: 2px solid #ff3d5d;
+  background-color: #343842;
+}
+
+#settings:active {
+  background-color: #4e5463;
+}
+
+.note {
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 2px solid #dfe4f2;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: : 5px;
+  line-height: .5;
+  color: #dfe4f2;
+  padding: 5px;
+}
+
+
+.btn {
+  padding-top: 0px;
+  transform: translate(2.5%, 0%);
+  transform: background .1;
+  margin: 0px 0px 10px 0px;
+  height: 70px;
+  width: 95%;
+  border-radius: 10px;
+  text-align: left;
+  background: rgba(255, 72, 59, .7);
+  color: #fcfcfc;
+  clear: both;
+}
+
+.btn:hover {
+  background: rgba(255, 72, 59, .5)
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.topic {
+  margin-top: 5px;
+  width: 100%;
+  height: 20px;
+}
+
+.finished {
+  text-decoration: line-through;
+  color: #a1a1a1
+}
+
+button {
+  border: none;
+  outline: none;
+  -webkit-app-region: no-drag;
+}

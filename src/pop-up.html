@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Pop Up</title>
+  <link rel='stylesheet' href='../css/pop-up.css' />
+</head>
+
+<body style="-webkit-app-region: drag" >
+  <form action='javascript:;' onsubmit="log_custom()">
+    <label for='class'>Class: </label>
+    <input type='text' id='class' maxlength="6" value='' placeholder='Class' required>
+    <br><br>
+    <label for='date'>Due Date: </label>
+    <input type='datetime-local' id='date' value='' required>
+    <br><br>
+    <label for="assignment">Assignment: </label>
+    <input type='text' id='assignment' value='' placeholder="Assignment Description" required>
+    <br><br>
+    <button id='cancel'>Cancel</button>
+    <input type='submit'>
+  </form>
+
+  <script type='module' src="./pop-up.js"></script>
+  <script type='module' src="./helper.js"></script>
+</body>
+
+</html>

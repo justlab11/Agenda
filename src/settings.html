@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>New Entry</title>
+  <link rel='stylesheet' href='../css/pop-up.css' />
+</head>
+
+<body style="-webkit-app-region: drag" >
+  <form action='javascript:;' onsubmit="log_settings()">
+    <label for='key'>Auth Key: </label>
+    <input type='text' id='key' maxlength="66" minlength='66'
+      value='' placeholder='Authorization Key'>
+    <br><br>
+    <label for='course_1'>Class ID 1: </label>
+    <input type='text' id='course_1' maxlength="7" class='settings'
+      value='' placeholder="Course 1 ID" pattern='^[0-9]*$'
+      title='7 digit class code'>
+    <label for="course_2">Class ID 2: </label>
+    <input type='text' id='course_2' maxlength="7" class='settings'
+      value='' placeholder="Course 2 ID" pattern='^[0-9]*$'
+      title='7 digit class code'>
+    <br><br>
+    <label for="course_3">Class ID 3: </label>
+    <input type='text' id='course_3' maxlength="7" class='settings'
+      value='' placeholder="Course 3 ID" pattern='^[0-9]*$'
+      title='7 digit class code'>
+    <label for="course_4">Class ID 4: </label>
+    <input type='text' id='course_4' maxlength="7" class='settings'
+      value='' placeholder="Course 4 ID" pattern='^[0-9]*$'
+      title='7 digit class code'>
+    <br><br>
+    <label for="course_5">Class ID 5: </label>
+    <input type='text' id='course_5' maxlength="7" class='settings'
+      value='' placeholder="Course 5 ID" pattern='^[0-9]*$'
+      title='7 digit class code'>
+    <br><br>
+    <button id='cancel' class='leave'>Cancel</button>
+    <input type='submit' class='leave'>
+  </form>
+
+  <script type='module' src="./pop-up.js"></script>
+  <script type='module' src="./helper.js"></script>
+</body>
+
+</html>
