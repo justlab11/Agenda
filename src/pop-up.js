@@ -17,8 +17,10 @@ window.log_custom = async function log_custom() {
     window.close();
     return
   }
-  await save_data(['custom_events'], [[class_val, date_val, assign_val, false]])
-  
+
+  let a = await save_data(['custom_events'], [[class_val, date_val, assign_val, false]])
+
+  wait(1000)
   window.getParentWindow().reload()
   window.close(); // closes the current window
 
@@ -31,9 +33,9 @@ window.log_settings = async function log_settings() {
   for (let i=0; i < courses_raw.length; i++) {
     courses.push(courses_raw[i].value)
   }
-  console.log('Updating Settings...')
-  await save_data(['canvas_key', 'courses'], [auth, courses])
 
+  let a = await save_data(['canvas_key', 'courses'], [auth, courses])
+  wait(1000)
   var window = remote.getCurrentWindow(); // finds the current window
   window.getParentWindow().reload()
   window.close(); // closes the current window

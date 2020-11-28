@@ -72,11 +72,11 @@ export async function save_data(keys, values) {
   //     break;
   // }
   console.log(calendar)
-  await fs.writeFile("./src/calendar.json", JSON.stringify(calendar), err => {
+  fs.writeFile("./src/calendar.json", JSON.stringify(calendar), err => {
 
         if (err) throw err; // show error
-
-        console.log("Done writing"); // Success
+        console.log('Done Writing')
+        return Promise.resolve(1)
     });
 }
 

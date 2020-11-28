@@ -54,7 +54,7 @@ async function getWeek() {
      ])
   }
 
-  await save_data(['assignments'], [assignments])
+  let a = await save_data(['assignments'], [assignments])
 }
 
 function url_maker(courses) { // makes the url
