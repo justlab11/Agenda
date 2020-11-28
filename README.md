@@ -24,8 +24,8 @@ The URL will look like this: `udel.instructure.com/courses/*ID*`
 3. Copy the ID number.
 
 ## Future Plans
--[ ] Create delete item button
--[ ] Create edit item button
--[ ] Make Agenda auto-refresh once an hour
--[ ] Remove the 10 assignment limit from Canvas API
--[ ] Deploy for actual use
+- [ ] Create delete item button
+- [ ] Create edit item button
+- [ ] Make Agenda auto-refresh once an hour
+- [ ] Remove the 10 assignment limit from Canvas API
+- [ ] Deploy for actual use
