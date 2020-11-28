@@ -2,6 +2,7 @@ const wait=ms=>new Promise(resolve => setTimeout(resolve, ms));
 var win = null;
 const path = require('path')
 const { BrowserWindow } = require('electron').remote
+const remote = require('electron').remote
 
 export function make_window(file, width, height) {
   const modalPath = path.join('file://', __dirname, file)
@@ -15,6 +16,7 @@ export function make_window(file, width, height) {
     resizable: false,
     width: width,
     height: height,
+    parent: remote.getCurrentWindow(),
     webPreferences: {
       contextIsolation: false,
       nodeIntegration: true,
@@ -42,22 +44,35 @@ function url_maker(courses) { // makes the url
   return `https://udel.instructure.com//api/v1/calendar_events?type=event&type=assignment&end_date=${end_date}${course_url}`; // return this monstrosity
 }
 
-export async function save_data(type, key, value) {
+export async function save_data(keys, values) {
   const fs = require('fs')
-  let calendar = require('./calendar')
-  // let calendar = JSON.parse(fs.readFileSync("./src/calendar.json"))
+  // let calendar = require('./calendar')
+  let calendar = JSON.parse(fs.readFileSync("./src/calendar.json"))
   wait(150);
-  switch (type) {
-    case 'p':  // push data
-      calendar[key].push(value)
-      break;
 
-    case 'o': // overwrite data
-      calendar[key] = value
-      break;
+  for (let i=0; i < keys.length; i++) {
+    switch (keys[i]) {
+      case 'custom_events':
+      case 'assignments':
+        calendar[keys[i]].push(values[i])
+        break;
+      case 'canvas_key':
+      case 'courses':
+      calendar[keys[i]] = values[i]
+    }
   }
+
+  // switch (type) {
+  //   case 'p':  // push data
+  //     calendar[key].push(value)
+  //     break;
+  //
+  //   case 'o': // overwrite data
+  //     calendar[key] = value
+  //     break;
+  // }
   console.log(calendar)
-  fs.writeFile("./src/calendar.json", JSON.stringify(calendar), err => {
+  await fs.writeFile("./src/calendar.json", JSON.stringify(calendar), err => {
 
         if (err) throw err; // show error
 
@@ -88,10 +103,17 @@ export async function getCanvasWeek() {
   const fs = require('fs'); // used to read JSON
   let calendar = JSON.parse(fs.readFileSync('./src/calendar.json')); // reads the JSON
   const url = url_maker(calendar['courses']); // makes the url
-
+  wait(200)
   let auth = calendar.canvas_key; // gets the authorization key
-  if (auth === "") {console.error('No Auth Key Given'); return} // checks that there is an authorization key
-
+  if (auth === "") { // checks that there is an authorization key
+    if (JSON.stringify(calendar.custom_events) == JSON.stringify([])) {
+      return 0
+    }
+    else {
+      return calendar.custom_events
+    }
+  }
+  console.log('getting data')
   const options = {
     method: 'GET', // want to get data
     headers: {
@@ -101,7 +123,7 @@ export async function getCanvasWeek() {
 
   let canvas_data = await fetch(url, options) // get a JSON of the data
                                    .then( res => res.json() )
-
+  console.log(canvas_data)
   let assignments = []
   for (let i=0; i < canvas_data.length; i++) {
     assignments.push([
@@ -119,6 +141,7 @@ export async function getCanvasWeek() {
     console.log('returning assignments')
     return assignments
   } else {
+    console.log('returning everything')
     return assignments.concat(calendar.custom_events)
   }
 }

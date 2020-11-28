@@ -17,15 +17,15 @@ input, button {
   font-size: 30px;
 }
 
-input[type=submit], button {
+button {
   border: 3px solid #C2C8DA;
   text-align: center;
   width: 150px;
   transition: border .3s ,border-radius .3s;
-  margin-left: 75px;
+  display: inline;
 }
 
-input[type=submit]:hover, button:hover {
+button:hover {
   border: 3px solid #ff3d5d;
   border-radius: 20px;
 }
@@ -39,9 +39,16 @@ input[type=text]:focus, input[type=datetime-local]:focus {
   border-bottom: 3px solid #ff3d5d;
 }
 
+.pop-up {
+  margin-left: 75px;
+}
+
+.leave {
+  margin-left: 130px;
+}
+
 #class {
-  width: 100px;
-  text-align: center;
+  width: 180px;
 }
 
 #date {

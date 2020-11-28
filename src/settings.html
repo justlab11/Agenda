@@ -8,9 +8,9 @@
 </head>
 
 <body style="-webkit-app-region: drag" >
-  <form action='javascript:;' onsubmit="log_settings()">
+  <div>
     <label for='key'>Auth Key: </label>
-    <input type='text' id='key' maxlength="66" minlength='66'
+    <input type='text' id='key' maxlength="70" minlength='60'
       value='' placeholder='Authorization Key'>
     <br><br>
     <label for='course_1'>Class ID 1: </label>
@@ -36,9 +36,9 @@
       value='' placeholder="Course 5 ID" pattern='^[0-9]*$'
       title='7 digit class code'>
     <br><br>
-    <button id='cancel' class='leave'>Cancel</button>
-    <input type='submit' class='leave'>
-  </form>
+    <button id='cancel_setting' class='leave' onClick='window.close()'>Cancel</button>
+    <button class='leave' onClick='window.log_settings()'>Submit</button>
+  </div>
 
   <script type='module' src="./pop-up.js"></script>
   <script type='module' src="./helper.js"></script>

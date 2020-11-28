@@ -20,6 +20,8 @@ exitbtn.addEventListener('click', function (event) {
 
 window.createAgenda = async function createAgenda() {
   let data = await getCanvasWeek(); // get the data
+  console.log(data)
+  if (data === 0) { return };
   for (let i=0; i < data.length; i++) {
     data[i][1] = new Date(data[i][1])
   }
